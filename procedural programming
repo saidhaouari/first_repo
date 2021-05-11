@@ -1,0 +1,27 @@
+FUNCTION dot_product(VAR V1,VAR V2: ARRAY_OF FLOAT[N]) : FLOAT
+VAR
+    Ps :FLOAT:=0;
+    i :INTEGER;
+BEGIN
+    FOR i FROM 0 TO N-1 STEP 1  DO
+        Ps:=Ps+(V1[i]*V2[i]); 
+    END_FOR
+    RETURN Ps ;
+END
+ALGORITHM Test_orthogonal
+VAR
+    N,n,j,i: INTEGER;
+    U : ARRAY_OF FLOAT[N];
+    V : ARRAY_OF FLOAT[N];
+BEGIN
+    Read(N)
+    FOR j FROM 1 TO n STEP 1  DO
+        FOR i FROM 0 TO N-1 STEP step  DO
+            Read (U[i])
+            Read (V[i])
+        END_FOR
+        IF (dot_product(U,V)=0) THEN
+            Write('U and V are orthogonal')
+        END_IF
+    END_FOR
+END
